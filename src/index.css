@@ -1,243 +1,134 @@
 /* ===========================================================
-   TAILWIND v4.1  (must be FIRST)
+   TAILWIND (must be FIRST)
 =========================================================== */
 @import "tailwindcss";
 
 /* ===========================================================
-   GLOBAL COLOR THEME
+   GLOBAL THEME VARIABLES
 =========================================================== */
 :root {
-  --bg: #d3d3d3;
+  --bg: #f3f5f7;
   --surface: #ffffff;
-  --text-dark: #008080;
-  --text: #004d4d;
-  --text-muted: #4a5b5b;
+  --text-dark: #083b3a;
+  --text-light: #5a6a6a;
 
+  --brand-teal: #008b8b;
   --brand-yellow: #f8ba2b;
-  --brand-yellow-dark: #e0a222;
 
-  --brand-teal: #008080;
-  --brand-teal-dark: #006b6b;
-
-  --radius: 1rem;
-  --shadow-soft: 0 10px 32px rgba(0,0,0,0.06);
-  --shadow-hover: 0 20px 40px rgba(0,0,0,0.10);
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 /* ===========================================================
-   BASE TYPOGRAPHY
+   GLOBAL BASE STYLES
 =========================================================== */
 body {
-  background: var(--bg) !important;
-  color: var(--text);
-  margin: 0;
-  font-family: "Inter", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text-dark);
+  font-family: system-ui, sans-serif;
 }
 
-html { scroll-behavior: smooth; }
-
-h1, h2, h3, h4 {
-  font-weight: 700;
-  color: var(--text-dark) !important;
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
 }
 
 /* ===========================================================
-   GLOBAL SECTION SPACING FIX (No Big Gaps)
-=========================================================== */
-
-section {
-  padding-top: 60px !important;
-  padding-bottom: 60px !important;
-}
-
-@media (min-width: 1024px) {
-  section {
-    padding-top: 80px !important;
-    padding-bottom: 80px !important;
-  }
-}
-
-/* HERO gets bigger spacing */
-#hero {
-  padding-top: 120px !important;
-  padding-bottom: 120px !important;
-}
-
-/* ===========================================================
-   CARD STYLES
-=========================================================== */
-.card-soft {
-  background: var(--surface);
-  border-radius: var(--radius);
-  border: 1px solid rgba(0,0,0,0.06);
-  box-shadow: var(--shadow-soft);
-  transition: all .28s ease;
-}
-.card-soft:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-hover);
-}
-
-/* ===========================================================
-   BUTTONS — ALWAYS PURE YELLOW
-=========================================================== */
-.btn-yellow,
-button.btn-yellow,
-a.btn-yellow {
-  background: var(--brand-yellow) !important;
-  color: #004d4d !important;
-  padding: .75rem 1.3rem;
-  border-radius: 999px;
-  font-weight: 700;
-  transition: background .25s ease, transform .25s ease;
-}
-
-.btn-yellow:hover {
-  background: var(--brand-yellow) !important;
-  transform: translateY(-2px);
-}
-
-/* ===========================================================
-   SLIDEBUTTON → ALWAYS YELLOW
-=========================================================== */
-
-.slide-btn,
-.slide-btn:hover,
-.slide-btn:focus,
-.slide-btn:active {
-  background: #f8ba2b !important;
-  color: #004d4d !important;
-  border: 1px solid #f8ba2b !important;
-  transform: translateY(0) !important;
-}
-
-.slide-btn span {
-  background: #f8ba2b !important;
-}
-
-.group.relative.overflow-hidden {
-  background: #f8ba2b !important;
-  border-color: #f8ba2b !important;
-  color: #004d4d !important;
-}
-
-.group.relative.overflow-hidden:hover span.absolute {
-  background: #f8ba2b !important;
-}
-
-/* ===========================================================
-   PREMIUM BUTTON ANIMATION (Micro-lift + Shine Sweep)
-=========================================================== */
-
-.btn-animate {
-  position: relative;
-  overflow: hidden;
-  transition: transform .25s ease, box-shadow .25s ease;
-}
-
-/* Hover lift */
-.btn-animate:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 22px rgba(0,0,0,0.15);
-}
-
-/* Shine sweep */
-.btn-animate::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -120%;
-  width: 60%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.35);
-  transform: skewX(-20deg);
-  transition: .6s;
-}
-
-.btn-animate:hover::after {
-  left: 120%;
-}
-
-/* Tap feedback */
-.btn-animate:active {
-  transform: scale(0.96);
-  box-shadow: 0 5px 10px rgba(0,0,0,0.12);
-  transition: transform 0.1s;
-}
-
-/* Apply animation to all buttons automatically */
-button,
-.btn-yellow,
-.slide-btn,
-a.btn-yellow,
-a.button,
-.btn {
-  @apply btn-animate;
-}
-
-/* ===========================================================
-   REVEAL CLASSES
-=========================================================== */
-section.reveal-up,
-.reveal-item {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
-
-/* ===========================================================
-   NAVBAR GLASS
+   NAVBAR GLASS EFFECT
 =========================================================== */
 .nav-glass {
-  background: rgba(255,255,255,0.7);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  transition: padding .28s, background .28s, box-shadow .28s;
-}
-.nav-glass.shrink {
-  padding-top: 6px;
-  padding-bottom: 6px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.65);
+  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.05);
 }
 
 /* ===========================================================
-   FLOATING DOT (Fix Empty Space Problem)
+   UNIVERSAL BUTTON HOVER ANIMATION
 =========================================================== */
-.hero-dot {
-  width: 12px !important;
-  height: 12px !important;
-  opacity: 0.1 !important;
-  background: radial-gradient(circle, #008080, #4bd7c6);
-  border-radius: 50%;
-  position: absolute;
-  animation: floatDot 6s ease-in-out infinite;
-  filter: blur(1px);
+/* Applies to all custom buttons */
+button,
+.slide-btn,
+a.slide-btn,
+.cta-button,
+a.button {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-@keyframes floatDot {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
-  100% { transform: translateY(0); }
+/* Hover animation */
+button:hover,
+.slide-btn:hover,
+a.slide-btn:hover,
+.cta-button:hover,
+a.button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.16);
+}
+
+/* Removes ugly focus outlines */
+button:focus,
+.slide-btn:focus,
+a.slide-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(248, 186, 43, 0.4);
 }
 
 /* ===========================================================
-   FOOTER FIX (Visible Always)
+   SECTION SPACING FIX (Remove big gap between pages)
+=========================================================== */
+section {
+  margin-top: 40px !important;
+  margin-bottom: 40px !important;
+}
+
+/* Hero gets slightly more space */
+#hero {
+  margin-top: 60px !important;
+}
+
+/* ===========================================================
+   CARD STYLE DEFAULTS
+=========================================================== */
+.card {
+  background: var(--surface);
+  border-radius: 18px;
+  box-shadow: var(--card-shadow);
+}
+
+/* ===========================================================
+   FOOTER FIX
 =========================================================== */
 footer {
   margin-top: 40px !important;
-  padding: 40px 0 !important;
+  padding-bottom: 20px;
 }
 
 /* ===========================================================
-   UTILITIES
+   PARTICLE CURSOR (if used)
 =========================================================== */
-.max-content {
-  max-width: 1200px;
-  margin: auto;
-  padding-inline: 1rem;
+.cursor-dot {
+  width: 12px;
+  height: 12px;
+  background: var(--brand-teal);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.9;
+  transition: transform 0.1s ease-out;
 }
 
-.center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* ===========================================================
+   CLEAN ANIMATIONS
+=========================================================== */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: revealUp 0.6s ease forwards;
+}
+
+@keyframes revealUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
