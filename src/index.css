@@ -111,3 +111,6 @@ a.slide-btn:focus {
   animation: none !important;
 }
 
+#particle-cursor {
+  z-index: 999999 !important;
+}

@@ -7,29 +7,46 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function UseAnimations() {
   useEffect(() => {
-    // Kill all old triggers (important)
-    ScrollTrigger.getAll().forEach(t => t.kill());
+    const elements = gsap.utils.toArray(".reveal-up");
 
-    const sections = gsap.utils.toArray("section.reveal-up");
+    elements.forEach((el) => {
+      const items = el.querySelectorAll(".reveal-item");
 
-    sections.forEach((sec) => {
-      gsap.fromTo(
-        sec,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
+      // MAIN element (do NOT hide initially)
+      gsap.from(el, {
+        opacity: 1,        // always start visible
+        y: 0,              // no hidden position
+        duration: 0.001,   // instant reset (no blink)
+      });
+
+      // Smooth animation on scroll
+      gsap.to(el, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 90%",
+          toggleActions: "play none none none",
+        },
+      });
+
+      // Inner item animation (optional)
+      if (items.length > 0) {
+        gsap.from(items, {
+          opacity: 0,
+          y: 18,
+          duration: 0.7,
+          stagger: 0.12,
           ease: "power3.out",
           scrollTrigger: {
-            trigger: sec,
-            start: "top 85%",
-            once: true,
-            // VERY IMPORTANT — ensures GSAP does NOT leave opacity:0
-            onLeaveBack: () => gsap.set(sec, { opacity: 1 }),
+            trigger: el,
+            start: "top 90%",
+            toggleActions: "play none none none",
           },
-        }
-      );
+        });
+      }
     });
   }, []);
 

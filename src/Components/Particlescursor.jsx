@@ -1,17 +1,16 @@
-// src/Components/ParticleCursor.jsx
 import { useEffect, useRef } from "react";
 
 export default function ParticleCursor({
-  size = 22,
-  color = "rgba(16,115,115,0.25)",
-  glow = "rgba(16,115,115,0.35)",
-  blur = 16,
-  smooth = 0.15
+  size = 24,
+  color = "rgba(0,150,136,0.55)",
+  glow = "rgba(0,150,136,0.4)",
+  blur = 25,
+  smooth = 0.15,
 }) {
   const cursorRef = useRef(null);
   const pos = useRef({ x: 0, y: 0 });
   const target = useRef({ x: 0, y: 0 });
-  const frameRef = useRef(null);
+  const frame = useRef(null);
 
   const lerp = (a, b, n) => a + (b - a) * n;
 
@@ -19,56 +18,58 @@ export default function ParticleCursor({
     const cursor = cursorRef.current;
     if (!cursor) return;
 
-    const update = () => {
-      pos.current.x = lerp(pos.current.x, target.current.x, smooth);
-      pos.current.y = lerp(pos.current.y, target.current.y, smooth);
-
-      cursor.style.transform = `translate3d(${pos.current.x - size / 2}px,${
-        pos.current.y - size / 2
-      }px,0)`;
-
-      frameRef.current = requestAnimationFrame(update);
-    };
-
     const move = (e) => {
       target.current.x = e.clientX;
       target.current.y = e.clientY;
     };
 
+    const update = () => {
+      pos.current.x = lerp(pos.current.x, target.current.x, smooth);
+      pos.current.y = lerp(pos.current.y, target.current.y, smooth);
+
+      cursor.style.transform = `translate3d(${pos.current.x - size / 2}px, ${
+        pos.current.y - size / 2
+      }px, 0)`;
+
+      frame.current = requestAnimationFrame(update);
+    };
+
     window.addEventListener("mousemove", move);
-    frameRef.current = requestAnimationFrame(update);
+    frame.current = requestAnimationFrame(update);
 
     return () => {
-      cancelAnimationFrame(frameRef.current);
       window.removeEventListener("mousemove", move);
+      cancelAnimationFrame(frame.current);
     };
   }, [smooth, size]);
 
-  // Disable on touch screens
+  // Hide on touch devices
   useEffect(() => {
     if (window.matchMedia("(hover: none)").matches) {
-      if (cursorRef.current) cursorRef.current.style.display = "none";
+      cursorRef.current.style.display = "none";
     }
   }, []);
 
   return (
     <div
+      id="particle-cursor"
       ref={cursorRef}
-      className="pointer-events-none fixed z-[9999]"
       style={{
         width: size,
         height: size,
         borderRadius: "50%",
         background: color,
-        boxShadow: `
-          0 0 ${blur}px ${glow}
-        `,
-        left: 0,
+        position: "fixed",
         top: 0,
-        opacity: 1,
-        transform: "translate3d(-50%, -50%, 0)",
-        mixBlendMode: "overlay"   // FIXED MODE (SAFE)
+        left: 0,
+        pointerEvents: "none",
+        zIndex: 999999,
+        mixBlendMode: "normal",
+        boxShadow: `
+          0 0 ${blur}px ${glow},
+          0 0 ${blur * 1.4}px ${glow}
+        `,
       }}
-    />
+    ></div>
   );
 }

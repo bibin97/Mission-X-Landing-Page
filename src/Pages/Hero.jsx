@@ -1,7 +1,7 @@
 
 import SlideButton from "../Components/SlideButton";
 import MouseTilt from "../Components/MouseTilt";
-import mxi from "../assets/mxi.png";
+import mxi from "../assets/mxi.jpg";
 
 export default function Hero() {
   return (

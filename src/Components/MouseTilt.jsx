@@ -1,68 +1,119 @@
+
+
 import { useRef, useEffect } from "react";
 
 export default function MouseTilt({
   children,
   className = "",
-  maxTilt = 10,    // rotation angle
-  scale = 1.02,    // gentle zoom
-  transitionSpeed = 200, // ms
+  strength = 18,   // max translation in px
+  scale = 1.03,    // hover scale
+  shadowBlur = 28, // shadow blur intensity
 }) {
-  const ref = useRef(null);
+  const root = useRef(null);
+  const pos = useRef({ tx: 0, ty: 0, rx: 0, ry: 0 });
+  const target = useRef({ tx: 0, ty: 0, rx: 0, ry: 0 });
+  const raf = useRef(null);
 
   useEffect(() => {
-    const el = ref.current;
+    const el = root.current;
     if (!el) return;
 
-    // Disable tilt on mobile/touch
-    const isTouch =
-      "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    // disable on touch devices
+    const isTouch = typeof window !== "undefined" && ("ontouchstart" in window || navigator.maxTouchPoints > 0);
+    if (isTouch) {
+      el.style.transform = "";
+      el.style.transition = "";
+      el.style.boxShadow = "";
+      return;
+    }
 
-    if (isTouch) return;
+    // helper to lerp
+    const lerp = (a, b, n) => (1 - n) * a + n * b;
 
-    const handleMove = (e) => {
+    const onMove = (e) => {
       const rect = el.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const x = (e.clientX - cx) / (rect.width / 2); // -1 .. 1
+      const y = (e.clientY - cy) / (rect.height / 2); // -1 .. 1
 
-      // Convert to rotation range -maxTilt to maxTilt
-      const rotateX = ((y / rect.height) - 0.5) * -2 * maxTilt;
-      const rotateY = ((x / rect.width) - 0.5) * 2 * maxTilt;
+      // Clamp
+      const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
 
-      el.style.transform = `
-        perspective(800px)
-        rotateX(${rotateX}deg)
-        rotateY(${rotateY}deg)
-        scale(${scale})
-      `;
+      target.current.tx = clamp(x * strength, -strength, strength);
+      target.current.ty = clamp(y * strength, -strength, strength);
+
+      // small rotate based on x/y (optional subtle)
+      target.current.rx = clamp(-y * (strength / 6), -6, 6);
+      target.current.ry = clamp(x * (strength / 6), -6, 6);
+
+      // ensure quick transition start (remove long transition)
+      el.style.transition = "transform 0s ease";
     };
 
-    const handleEnter = () => {
-      el.style.transition = `transform ${transitionSpeed}ms ease`;
+    const onEnter = () => {
+      // scale up softly
+      el.style.willChange = "transform";
+      el.style.transition = "box-shadow 220ms ease, transform 220ms cubic-bezier(.2,.9,.2,1)";
+      // subtle initial shadow
+      el.style.boxShadow = `0 10px ${Math.round(shadowBlur * 0.6)}px rgba(2,6,23,0.06)`;
     };
 
-    const handleLeave = () => {
-      el.style.transition = `transform ${transitionSpeed}ms ease`;
-      el.style.transform = "perspective(800px) rotateX(0) rotateY(0) scale(1)";
+    const onLeave = () => {
+      // reset targets
+      target.current = { tx: 0, ty: 0, rx: 0, ry: 0 };
+      // smooth reset
+      el.style.transition = "transform 360ms cubic-bezier(.2,.9,.2,1), box-shadow 300ms ease";
+      el.style.transform = `perspective(900px) translate3d(0px,0px,0px) rotateX(0deg) rotateY(0deg) scale(1)`;
+      el.style.boxShadow = `0 6px ${Math.round(shadowBlur * 0.25)}px rgba(2,6,23,0.05)`;
     };
 
-    el.addEventListener("mousemove", handleMove);
-    el.addEventListener("mouseenter", handleEnter);
-    el.addEventListener("mouseleave", handleLeave);
+    const animate = () => {
+      // lerp current -> target
+      pos.current.tx = lerp(pos.current.tx, target.current.tx, 0.14);
+      pos.current.ty = lerp(pos.current.ty, target.current.ty, 0.14);
+      pos.current.rx = lerp(pos.current.rx, target.current.rx, 0.12);
+      pos.current.ry = lerp(pos.current.ry, target.current.ry, 0.12);
+
+      const t = pos.current;
+      // transform: translate + rotate + scale
+      const transform = `perspective(900px) translate3d(${t.tx}px, ${t.ty}px, 0px) rotateX(${t.rx}deg) rotateY(${t.ry}deg) scale(${scale})`;
+      el.style.transform = transform;
+
+      // dynamic shadow based on Y distance (subtle)
+      const absY = Math.abs(t.ty);
+      const dynamicBlur = Math.round(shadowBlur + absY * 0.8);
+      el.style.boxShadow = `0 ${10 + Math.abs(t.ty) * 0.6}px ${dynamicBlur}px rgba(2,6,23,0.07)`;
+
+      raf.current = requestAnimationFrame(animate);
+    };
+
+    // events
+    el.addEventListener("mousemove", onMove);
+    el.addEventListener("mouseenter", onEnter);
+    el.addEventListener("mouseleave", onLeave);
+
+    // start RAF
+    raf.current = requestAnimationFrame(animate);
 
     return () => {
-      el.removeEventListener("mousemove", handleMove);
-      el.removeEventListener("mouseenter", handleEnter);
-      el.removeEventListener("mouseleave", handleLeave);
+      el.removeEventListener("mousemove", onMove);
+      el.removeEventListener("mouseenter", onEnter);
+      el.removeEventListener("mouseleave", onLeave);
+      cancelAnimationFrame(raf.current);
     };
-  }, [maxTilt, scale, transitionSpeed]);
+  }, [strength, scale, shadowBlur]);
 
+  // wrapper styling: ensure smoothness and pointer-events preserved
   return (
     <div
-      ref={ref}
-      className={className}
+      ref={root}
+      className={`will-change-transform ${className}`}
       style={{
-        transform: "perspective(800px) rotateX(0) rotateY(0) scale(1)",
-        willChange: "transform",
+        transform: "translate3d(0,0,0) scale(1)",
+        transition: "transform 320ms cubic-bezier(.2,.9,.2,1), box-shadow 300ms ease",
+        boxShadow: `0 6px ${Math.round(shadowBlur * 0.25)}px rgba(2,6,23,0.05)`,
+        borderRadius: "inherit",
       }}
     >
       {children}
