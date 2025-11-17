@@ -1,5 +1,3 @@
-// src/Pages/Testimonials.jsx
-// Premium Testimonials — Magnetic Hover + Reveal Animation + Clean Theme
 
 import MouseTilt from "../Components/MouseTilt";
 

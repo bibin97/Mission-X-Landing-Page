@@ -42,6 +42,28 @@ h1, h2, h3, h4 {
 }
 
 /* ===========================================================
+   GLOBAL SECTION SPACING FIX (No Big Gaps)
+=========================================================== */
+
+section {
+  padding-top: 60px !important;
+  padding-bottom: 60px !important;
+}
+
+@media (min-width: 1024px) {
+  section {
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+  }
+}
+
+/* HERO gets bigger spacing */
+#hero {
+  padding-top: 120px !important;
+  padding-bottom: 120px !important;
+}
+
+/* ===========================================================
    CARD STYLES
 =========================================================== */
 .card-soft {
@@ -51,7 +73,6 @@ h1, h2, h3, h4 {
   box-shadow: var(--shadow-soft);
   transition: all .28s ease;
 }
-
 .card-soft:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-hover);
@@ -60,7 +81,6 @@ h1, h2, h3, h4 {
 /* ===========================================================
    BUTTONS — ALWAYS PURE YELLOW
 =========================================================== */
-
 .btn-yellow,
 button.btn-yellow,
 a.btn-yellow {
@@ -106,8 +126,7 @@ a.btn-yellow {
 }
 
 /* ===========================================================
-   PREMIUM BUTTON ANIMATION
-   (Micro-lift + Shine Sweep)
+   PREMIUM BUTTON ANIMATION (Micro-lift + Shine Sweep)
 =========================================================== */
 
 .btn-animate {
@@ -146,6 +165,16 @@ a.btn-yellow {
   transition: transform 0.1s;
 }
 
+/* Apply animation to all buttons automatically */
+button,
+.btn-yellow,
+.slide-btn,
+a.btn-yellow,
+a.button,
+.btn {
+  @apply btn-animate;
+}
+
 /* ===========================================================
    REVEAL CLASSES
 =========================================================== */
@@ -164,7 +193,6 @@ section.reveal-up,
   border-bottom: 1px solid rgba(0,0,0,0.05);
   transition: padding .28s, background .28s, box-shadow .28s;
 }
-
 .nav-glass.shrink {
   padding-top: 6px;
   padding-bottom: 6px;
@@ -172,23 +200,31 @@ section.reveal-up,
 }
 
 /* ===========================================================
-   FLOATING DOTS
+   FLOATING DOT (Fix Empty Space Problem)
 =========================================================== */
 .hero-dot {
-  width: 10px;
-  height: 10px;
-  position: absolute;
+  width: 12px !important;
+  height: 12px !important;
+  opacity: 0.1 !important;
   background: radial-gradient(circle, #008080, #4bd7c6);
   border-radius: 50%;
-  opacity: 0.15;
+  position: absolute;
   animation: floatDot 6s ease-in-out infinite;
   filter: blur(1px);
 }
 
 @keyframes floatDot {
   0% { transform: translateY(0); }
-  50% { transform: translateY(-25px); }
+  50% { transform: translateY(-20px); }
   100% { transform: translateY(0); }
+}
+
+/* ===========================================================
+   FOOTER FIX (Visible Always)
+=========================================================== */
+footer {
+  margin-top: 40px !important;
+  padding: 40px 0 !important;
 }
 
 /* ===========================================================

@@ -1,5 +1,3 @@
-// src/Pages/Features.jsx
-// Premium Features Section — With Magnetic Hover + Reveal Animations
 
 import MouseTilt from "../Components/MouseTilt";
 

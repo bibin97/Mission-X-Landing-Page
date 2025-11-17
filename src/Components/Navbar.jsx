@@ -1,6 +1,6 @@
 // src/components/Navbar.jsx
 import { useState, useEffect } from "react";
-import SlideButton from "./Slidebutton";
+import SlideButton from "./SlideButton";
 import logo from "../assets/mxlogo.png";
 
 export default function Navbar() {
