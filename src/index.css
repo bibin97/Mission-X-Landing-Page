@@ -1,0 +1,207 @@
+/* ===========================================================
+   TAILWIND v4.1  (must be FIRST)
+=========================================================== */
+@import "tailwindcss";
+
+/* ===========================================================
+   GLOBAL COLOR THEME
+=========================================================== */
+:root {
+  --bg: #d3d3d3;
+  --surface: #ffffff;
+  --text-dark: #008080;
+  --text: #004d4d;
+  --text-muted: #4a5b5b;
+
+  --brand-yellow: #f8ba2b;
+  --brand-yellow-dark: #e0a222;
+
+  --brand-teal: #008080;
+  --brand-teal-dark: #006b6b;
+
+  --radius: 1rem;
+  --shadow-soft: 0 10px 32px rgba(0,0,0,0.06);
+  --shadow-hover: 0 20px 40px rgba(0,0,0,0.10);
+}
+
+/* ===========================================================
+   BASE TYPOGRAPHY
+=========================================================== */
+body {
+  background: var(--bg) !important;
+  color: var(--text);
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+h1, h2, h3, h4 {
+  font-weight: 700;
+  color: var(--text-dark) !important;
+}
+
+/* ===========================================================
+   CARD STYLES
+=========================================================== */
+.card-soft {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: var(--shadow-soft);
+  transition: all .28s ease;
+}
+
+.card-soft:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* ===========================================================
+   BUTTONS — ALWAYS PURE YELLOW
+=========================================================== */
+
+.btn-yellow,
+button.btn-yellow,
+a.btn-yellow {
+  background: var(--brand-yellow) !important;
+  color: #004d4d !important;
+  padding: .75rem 1.3rem;
+  border-radius: 999px;
+  font-weight: 700;
+  transition: background .25s ease, transform .25s ease;
+}
+
+.btn-yellow:hover {
+  background: var(--brand-yellow) !important;
+  transform: translateY(-2px);
+}
+
+/* ===========================================================
+   SLIDEBUTTON → ALWAYS YELLOW
+=========================================================== */
+
+.slide-btn,
+.slide-btn:hover,
+.slide-btn:focus,
+.slide-btn:active {
+  background: #f8ba2b !important;
+  color: #004d4d !important;
+  border: 1px solid #f8ba2b !important;
+  transform: translateY(0) !important;
+}
+
+.slide-btn span {
+  background: #f8ba2b !important;
+}
+
+.group.relative.overflow-hidden {
+  background: #f8ba2b !important;
+  border-color: #f8ba2b !important;
+  color: #004d4d !important;
+}
+
+.group.relative.overflow-hidden:hover span.absolute {
+  background: #f8ba2b !important;
+}
+
+/* ===========================================================
+   PREMIUM BUTTON ANIMATION
+   (Micro-lift + Shine Sweep)
+=========================================================== */
+
+.btn-animate {
+  position: relative;
+  overflow: hidden;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+/* Hover lift */
+.btn-animate:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.15);
+}
+
+/* Shine sweep */
+.btn-animate::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.35);
+  transform: skewX(-20deg);
+  transition: .6s;
+}
+
+.btn-animate:hover::after {
+  left: 120%;
+}
+
+/* Tap feedback */
+.btn-animate:active {
+  transform: scale(0.96);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.12);
+  transition: transform 0.1s;
+}
+
+/* ===========================================================
+   REVEAL CLASSES
+=========================================================== */
+section.reveal-up,
+.reveal-item {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* ===========================================================
+   NAVBAR GLASS
+=========================================================== */
+.nav-glass {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  transition: padding .28s, background .28s, box-shadow .28s;
+}
+
+.nav-glass.shrink {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+/* ===========================================================
+   FLOATING DOTS
+=========================================================== */
+.hero-dot {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  background: radial-gradient(circle, #008080, #4bd7c6);
+  border-radius: 50%;
+  opacity: 0.15;
+  animation: floatDot 6s ease-in-out infinite;
+  filter: blur(1px);
+}
+
+@keyframes floatDot {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-25px); }
+  100% { transform: translateY(0); }
+}
+
+/* ===========================================================
+   UTILITIES
+=========================================================== */
+.max-content {
+  max-width: 1200px;
+  margin: auto;
+  padding-inline: 1rem;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
