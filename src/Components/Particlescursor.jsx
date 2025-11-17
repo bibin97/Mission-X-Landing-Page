@@ -2,11 +2,11 @@
 import { useEffect, useRef } from "react";
 
 export default function ParticleCursor({
-  size = 26,
-  color = "rgba(16,115,115,0.55)",
+  size = 22,
+  color = "rgba(16,115,115,0.25)",
   glow = "rgba(16,115,115,0.35)",
-  blur = 20,
-  smooth = 0.12
+  blur = 16,
+  smooth = 0.15
 }) {
   const cursorRef = useRef(null);
   const pos = useRef({ x: 0, y: 0 });
@@ -23,9 +23,9 @@ export default function ParticleCursor({
       pos.current.x = lerp(pos.current.x, target.current.x, smooth);
       pos.current.y = lerp(pos.current.y, target.current.y, smooth);
 
-      cursor.style.transform = `translate3d(${pos.current.x - size / 2}px, ${
+      cursor.style.transform = `translate3d(${pos.current.x - size / 2}px,${
         pos.current.y - size / 2
-      }px, 0)`;
+      }px,0)`;
 
       frameRef.current = requestAnimationFrame(update);
     };
@@ -36,8 +36,6 @@ export default function ParticleCursor({
     };
 
     window.addEventListener("mousemove", move);
-
-    // Start animation loop only ONCE
     frameRef.current = requestAnimationFrame(update);
 
     return () => {
@@ -46,11 +44,10 @@ export default function ParticleCursor({
     };
   }, [smooth, size]);
 
-  // Hide on mobile
+  // Disable on touch screens
   useEffect(() => {
-    const isTouch = window.matchMedia("(hover: none)").matches;
-    if (isTouch && cursorRef.current) {
-      cursorRef.current.style.display = "none";
+    if (window.matchMedia("(hover: none)").matches) {
+      if (cursorRef.current) cursorRef.current.style.display = "none";
     }
   }, []);
 
@@ -64,14 +61,13 @@ export default function ParticleCursor({
         borderRadius: "50%",
         background: color,
         boxShadow: `
-          0 0 ${blur}px ${glow},
-          0 0 ${blur * 1.4}px ${glow}
+          0 0 ${blur}px ${glow}
         `,
-        opacity: 0.9,
         left: 0,
         top: 0,
+        opacity: 1,
         transform: "translate3d(-50%, -50%, 0)",
-        mixBlendMode: "normal"
+        mixBlendMode: "overlay"   // FIXED MODE (SAFE)
       }}
     />
   );

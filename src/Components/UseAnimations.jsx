@@ -3,44 +3,33 @@ import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// Register plugin
 gsap.registerPlugin(ScrollTrigger);
 
 export default function UseAnimations() {
   useEffect(() => {
-    const elements = gsap.utils.toArray(".reveal-up");
+    // Kill all old triggers (important)
+    ScrollTrigger.getAll().forEach(t => t.kill());
 
-    elements.forEach((el) => {
-      const items = el.querySelectorAll(".reveal-item");
+    const sections = gsap.utils.toArray("section.reveal-up");
 
-      // Main element reveal
-      gsap.from(el, {
-        opacity: 0,
-        y: 40,
-        duration: 0.9,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: el,
-          start: "top 85%",
-          once: true,
-        },
-      });
-
-      // Inner items
-      if (items.length > 0) {
-        gsap.from(items, {
-          opacity: 0,
-          y: 20,
-          duration: 0.7,
-          stagger: 0.12,
+    sections.forEach((sec) => {
+      gsap.fromTo(
+        sec,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
           ease: "power3.out",
           scrollTrigger: {
-            trigger: el,
+            trigger: sec,
             start: "top 85%",
             once: true,
+            // VERY IMPORTANT — ensures GSAP does NOT leave opacity:0
+            onLeaveBack: () => gsap.set(sec, { opacity: 1 }),
           },
-        });
-      }
+        }
+      );
     });
   }, []);
 
