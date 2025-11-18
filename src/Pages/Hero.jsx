@@ -1,4 +1,3 @@
-
 import SlideButton from "../Components/SlideButton";
 import MouseTilt from "../Components/MouseTilt";
 import mxi from "../assets/mxi.jpg";
@@ -13,23 +12,28 @@ export default function Hero() {
 
         {/* LEFT SIDE CONTENT */}
         <div className="text-left space-y-6 reveal-item">
+
+          {/* Badge (Typing) */}
           <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full
-            bg-teal-100 text-[var(--brand-teal)] border border-teal-200 font-semibold shadow-sm">
+            bg-teal-100 text-[var(--brand-teal)] border border-teal-200 font-semibold shadow-sm reveal-typing">
             <span className="w-2 h-2 rounded-full bg-[var(--brand-yellow)] animate-pulse"></span>
             Premium AI-Powered Learning
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[var(--text-dark)] leading-tight">
+          {/* Main Heading (Typing) */}
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[var(--text-dark)] leading-tight reveal-typing">
             Transform Your Learning with{" "}
             <span className="text-[var(--brand-teal)]">Mission X</span>
           </h1>
 
-          <p className="text-[var(--text)] max-w-xl text-base sm:text-lg">
+          {/* Description (Typing) */}
+          <p className="text-[var(--text)] max-w-xl text-base sm:text-lg reveal-typing">
             Mission-based learning powered by AI, expert mentors, and a structured
             curriculum designed to help students score{" "}
             <span className="font-semibold text-[var(--brand-teal)]">90+</span>.
           </p>
 
+          {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mt-6 reveal-item">
             <SlideButton
               as="a"

@@ -114,3 +114,6 @@ a.slide-btn:focus {
 #particle-cursor {
   z-index: 999999 !important;
 }
+.split-text .char {
+  opacity: 0;
+}

@@ -2,68 +2,29 @@
 import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import SplitType from "split-type";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function UseAnimations() {
   useEffect(() => {
-    // GSAP context to avoid double execution
-    const ctx = gsap.context(() => {
+    const elements = document.querySelectorAll(".reveal-typing");
 
-      const sections = gsap.utils.toArray(".reveal-up");
+    elements.forEach((el) => {
+      const split = new SplitType(el, { types: "chars" });
 
-      sections.forEach((sec) => {
-        const items = sec.querySelectorAll(".reveal-item");
-
-        // Main section animation
-        gsap.fromTo(
-          sec,
-          { opacity: 0, y: 40 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: sec,
-              start: "top 85%",
-              once: true,
-            }
-          }
-        );
-
-        // Inner items animation
-        if (items.length > 0) {
-          gsap.fromTo(
-            items,
-            { opacity: 0, y: 20 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.7,
-              stagger: 0.12,
-              ease: "power3.out",
-              scrollTrigger: {
-                trigger: sec,
-                start: "top 85%",
-                once: true,
-              }
-            }
-          );
-        }
+      gsap.from(split.chars, {
+        opacity: 0,
+        y: 10,
+        stagger: 0.03, // speed of typing
+        duration: 0.4,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 90%",
+        },
       });
-
-      // 🚀 THE IMPORTANT FIX FOR VERCEL:
-      // Forces ScrollTrigger to calculate positions AFTER page fully loads
-      window.addEventListener("load", () => {
-        setTimeout(() => {
-          ScrollTrigger.refresh();
-        }, 200);
-      });
-
     });
-
-    return () => ctx.revert();
   }, []);
 
   return null;

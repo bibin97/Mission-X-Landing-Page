@@ -34,9 +34,9 @@ export default function Navbar() {
           <img
             src={logo}
             alt="Mission X"
-            className="h-12 sm:h-14 w-auto object-contain"
+            className="h-12 sm:h-14 w-auto object-contain navbar-reveal"
           />
-          <span className="hidden sm:inline-block text-lg font-semibold text-[var(--text-dark)]">
+          <span className="hidden sm:inline-block text-lg font-semibold text-[var(--text-dark)] navbar-typing">
             Mission X
           </span>
         </a>
@@ -47,20 +47,19 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="relative font-medium text-[var(--text-dark)] group"
-              onClick={() => setOpen(false)}
+              className="relative font-medium text-[var(--text-dark)] group navbar-reveal"
             >
               {link.label}
-              <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-[var(--brand-yellow)] group-hover:w-full transition-all duration-300" />
+              <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-[var(--brand-yellow)] group-hover:w-full transition-all duration-300"></span>
             </a>
           ))}
         </nav>
 
-        {/* DESKTOP CTA BUTTON */}
+        {/* CTA BUTTON */}
         <SlideButton
           as="a"
           href="#join"
-          className="px-4 py-2 rounded-full text-white font-semibold slide-btn btn-animate"
+          className="px-4 py-2 rounded-full text-white font-semibold slide-btn btn-animate navbar-reveal"
           baseBg="#f8ba2b"
           fillColor="#f8ba2b"
         >
@@ -70,16 +69,13 @@ export default function Navbar() {
         {/* MOBILE MENU TOGGLE */}
         <button
           onClick={() => setOpen((s) => !s)}
-          aria-expanded={open}
-          aria-label="Toggle menu"
-          className="md:hidden p-2 rounded-md bg-white border border-gray-200"
+          className="md:hidden p-2 rounded-md bg-white border border-gray-200 navbar-reveal"
         >
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path
               d={open ? "M6 18L18 6M6 6l12 12" : "M3 6h18M3 12h18M3 18h18"}
               stroke="#083B3A"
               strokeLinecap="round"
-              strokeLinejoin="round"
             />
           </svg>
         </button>
@@ -97,14 +93,14 @@ export default function Navbar() {
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="py-2 font-medium text-[var(--text-dark)]"
+              className="py-2 font-medium text-[var(--text-dark)] navbar-reveal"
             >
               {l.label}
             </a>
           ))}
 
-          {/* MOBILE CTA BUTTON */}
-          <div className="pt-2">
+          {/* MOBILE CTA */}
+          <div className="pt-2 navbar-reveal">
             <SlideButton
               as="a"
               href="#join"

@@ -4,8 +4,6 @@
 import { useState, useEffect } from "react";
 import SlideButton from "./SlideButton";
 
-
-
 export default function Cta() {
   const [timeLeft, setTimeLeft] = useState({
     hours: 23,
@@ -51,18 +49,18 @@ export default function Cta() {
           {/* Badge */}
           <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full 
               bg-[var(--brand-yellow)]/20 text-[var(--text-dark)]
-              border border-[var(--brand-yellow)]/50 font-semibold mb-6 reveal-item">
+              border border-[var(--brand-yellow)]/50 font-semibold mb-6 reveal-typing">
             <span className="w-2 h-2 bg-[var(--brand-yellow)] rounded-full animate-pulse"></span>
             Limited Time Premium Access
           </div>
 
           {/* Heading */}
-          <h3 className="text-3xl sm:text-4xl font-bold text-[var(--text-dark)] mb-4 reveal-item">
+          <h3 className="text-3xl sm:text-4xl font-bold text-[var(--text-dark)] mb-4 reveal-typing">
             Join Mission X & Boost Your Math Score
           </h3>
 
           {/* Description */}
-          <p className="text-[var(--text-muted)] max-w-2xl mx-auto mb-10 text-lg reveal-item">
+          <p className="text-[var(--text-muted)] max-w-2xl mx-auto mb-10 text-lg reveal-typing">
             Get instant access to missions, AI mentor help, expert guidance, and
             step-by-step learning paths — trusted by over{" "}
             <span className="text-[var(--brand-yellow)] font-semibold">10,000+</span> students.
@@ -87,11 +85,12 @@ export default function Cta() {
             </a>
           </div>
 
-          {/* Timer */}
-          <p className="text-[var(--text-dark)] font-medium mb-5 reveal-item">
-            ⏰ Offer resets in:
+          {/* Timer Label */}
+          <p className="text-[var(--text-dark)] font-medium mb-5 reveal-typing">
+            ⏰ Offer Ends in:
           </p>
 
+          {/* Timer */}
           <div className="flex justify-center gap-5 mb-10">
             {timeBox(timeLeft.hours, "Hours")}
             {timeBox(timeLeft.minutes, "Minutes")}
@@ -99,7 +98,7 @@ export default function Cta() {
           </div>
 
           {/* Bottom Note */}
-          <p className="text-[var(--text-muted)] text-sm font-medium reveal-item">
+          <p className="text-[var(--text-muted)] text-sm font-medium reveal-typing">
             No credit card required • Instant access • 100% free to start
           </p>
 

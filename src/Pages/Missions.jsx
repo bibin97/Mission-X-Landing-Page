@@ -1,4 +1,3 @@
-
 import MouseTilt from "../Components/MouseTilt";
 
 const missionsData = [
@@ -41,17 +40,21 @@ export default function Missions() {
 
         {/* Header */}
         <div className="text-center mb-14 reveal-item">
+
+          {/* Badge */}
           <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full 
-            bg-teal-100 text-[var(--brand-teal)] border border-teal-200 font-semibold mb-5">
+            bg-teal-100 text-[var(--brand-teal)] border border-teal-200 font-semibold mb-5 reveal-typing">
             <span className="w-2 h-2 rounded-full bg-[var(--brand-yellow)] animate-pulse"></span>
             Premium Mission System
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[var(--text-dark)] mb-3">
+          {/* Heading */}
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[var(--text-dark)] mb-3 reveal-typing">
             Explore Your Learning Missions
           </h2>
 
-          <p className="text-[var(--text)] max-w-3xl mx-auto text-base sm:text-lg">
+          {/* Paragraph */}
+          <p className="text-[var(--text)] max-w-3xl mx-auto text-base sm:text-lg reveal-typing">
             25 structured missions designed to build confidence, clarity,
             and exam-ready mastery in every chapter.
           </p>
@@ -84,7 +87,7 @@ export default function Missions() {
                   </div>
 
                   <div>
-                    <h3 className="font-bold text-lg text-[var(--text-dark)] leading-tight">
+                    <h3 className="font-bold text-lg text-[var(--text-dark)] leading-tight reveal-typing">
                       {m.name}
                     </h3>
                     <p className="text-sm text-gray-500">{m.duration}</p>
@@ -92,7 +95,7 @@ export default function Missions() {
                 </div>
 
                 {/* Detail */}
-                <p className="text-[var(--text-muted)] text-sm leading-relaxed mb-6">
+                <p className="text-[var(--text-muted)] text-sm leading-relaxed mb-6 reveal-typing">
                   {m.detail}
                 </p>
 
@@ -113,7 +116,7 @@ export default function Missions() {
                   </div>
                 </div>
 
-                {/* 🔥 Spacer to align bottom items */}
+                {/* Spacer */}
                 <div className="flex-grow"></div>
 
                 {/* Progress Bar */}

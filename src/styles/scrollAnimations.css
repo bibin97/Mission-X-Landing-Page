@@ -1,0 +1,87 @@
+/* ==============================================
+   TailwindCSS v4.1 compatible 3D / hover utilities
+================================================= */
+
+/* HOVER LIFT */
+@utility hover-lift-3d {
+  transition: transform 450ms cubic-bezier(.2,.9,.2,1),
+              box-shadow 450ms cubic-bezier(.2,.9,.2,1);
+  will-change: transform, box-shadow;
+}
+@variant hover {
+  .hover-lift-3d {
+    transform: translateY(-8px) scale(1.02);
+  }
+}
+
+/* HOVER GLOW */
+@utility hover-glow-3d {
+  transition: box-shadow 450ms cubic-bezier(.2,.9,.2,1),
+              border-color 450ms cubic-bezier(.2,.9,.2,1);
+}
+@variant hover {
+  .hover-glow-3d {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18),
+                0 0 25px rgba(255,255,255,0.25);
+    border-color: rgba(255,255,255,0.9);
+  }
+}
+
+/* TAG MORPH */
+@utility hover-morph-3d {
+  transition: transform 320ms, background 320ms, color 320ms;
+}
+@variant hover {
+  .hover-morph-3d {
+    transform: translateY(-3px) scale(1.03);
+  }
+}
+
+/* SHINE SLIDE */
+@utility shine-slide {
+  position: absolute;
+  inset: 0;
+  transform: translateX(-120%);
+  pointer-events: none;
+  transition: transform 700ms cubic-bezier(.2,.9,.2,1);
+}
+@variant group-hover {
+  .shine-slide {
+    transform: translateX(120%);
+  }
+}
+
+/* FLOATING DOT */
+@keyframes floatY {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+@utility float-3d {
+  animation: floatY 6s ease-in-out infinite;
+}
+
+/* REVEAL ANIMATIONS */
+@utility slide-left-3d {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+@utility slide-right-3d {
+  opacity: 0;
+  transform: translateX(20px);
+}
+@utility fade-in-3d {
+  opacity: 0;
+  transform: translateY(18px);
+}
+@utility scale-3d {
+  opacity: 0;
+  transform: scale(0.96);
+}
+
+/* TEXT REVEAL */
+@utility text-reveal-3d {
+  display: inline-block;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}

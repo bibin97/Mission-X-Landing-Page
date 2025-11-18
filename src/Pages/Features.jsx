@@ -1,4 +1,3 @@
-
 import MouseTilt from "../Components/MouseTilt";
 
 const featuresList = [
@@ -47,16 +46,16 @@ export default function Features() {
         {/* ----------------------- */}
         <div className="text-center mb-14 reveal-item">
           <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full
-            bg-teal-100 text-[var(--brand-teal)] border border-teal-200 font-semibold mb-5">
+            bg-teal-100 text-[var(--brand-teal)] border border-teal-200 font-semibold mb-5 reveal-typing">
             <span className="w-2 h-2 rounded-full bg-[var(--brand-yellow)] animate-pulse"></span>
             Premium Learning Ecosystem
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[var(--text-dark)] mb-3">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[var(--text-dark)] mb-3 reveal-typing">
             Why Students Choose Mission X
           </h2>
 
-          <p className="text-[var(--text)] max-w-2xl mx-auto text-base sm:text-lg">
+          <p className="text-[var(--text)] max-w-2xl mx-auto text-base sm:text-lg reveal-typing">
             A refined mission-based system with powerful tools, AI mentorship,
             and expert-guided pathways built for results.
           </p>
@@ -81,12 +80,12 @@ export default function Features() {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-semibold text-[var(--text-dark)] mb-2">
+                <h3 className="text-xl font-semibold text-[var(--text-dark)] mb-2 reveal-typing">
                   {item.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-[var(--text-muted)] text-sm leading-relaxed">
+                <p className="text-[var(--text-muted)] text-sm leading-relaxed reveal-typing">
                   {item.desc}
                 </p>
 
