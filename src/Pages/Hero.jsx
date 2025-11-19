@@ -41,7 +41,7 @@ export default function Hero() {
               href="https://wa.me/8281832158"
               className="px-8 py-4 text-base"
               baseBg="#f8ba2b"
-              fillColor="#f8ba2b"
+
               textColor="#000"
             >
               Join Free on WhatsApp

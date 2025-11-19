@@ -106,7 +106,6 @@ export default function Navbar() {
   href="#join"
   className="navbar-desktop-cta px-4 py-2 rounded-full font-semibold slide-btn btn-animate navbar-reveal text-black"
   baseBg="#f8ba2b"
-  fillColor="#f8ba2b"
   textColor="#000"
 >
   Join Free
