@@ -41,7 +41,7 @@ export default function Cta() {
   );
 
   return (
-    <section id="join" className="py-28 reveal-up">
+    <section id="join" className="section-padding reveal-up">
       <div className="max-w-4xl mx-auto px-6">
 
         <div className="card-soft rounded-3xl p-10 text-center">

@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative bg-[var(--bg)] overflow-hidden py-24 lg:py-32 reveal-up"
+      className="section-padding relative bg-[var(--bg)] overflow-hidden  reveal-up"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 

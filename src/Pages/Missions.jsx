@@ -35,7 +35,7 @@ const missionsData = [
 
 export default function Missions() {
   return (
-    <section id="missions" className="bg-[var(--bg)] py-24 lg:py-32 reveal-up">
+    <section id="missions" className="section-padding bg-[var(--bg)]  reveal-up">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
 
         {/* Header */}

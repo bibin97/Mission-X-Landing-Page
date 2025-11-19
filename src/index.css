@@ -69,10 +69,38 @@ a.slide-btn:focus {
 }
 
 /* ===========================================================
-   SECTION SPACING
+   SECTION SPACING (reduced globally)
 =========================================================== */
-#hero {
-  padding-top: 140px;
+section {
+  margin-top: 40px !important;
+  margin-bottom: 40px !important;
+}
+
+@media (min-width: 768px) {
+  section {
+    margin-top: 60px !important;
+    margin-bottom: 60px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  section {
+    margin-top: 80px !important;
+    margin-bottom: 80px !important;
+  }
+}
+
+/* Optional tighter padding inside sections */
+.section-padding {
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
 }
 
 /* ===========================================================
@@ -135,13 +163,13 @@ a.slide-btn:focus {
 }
 
 /* ===========================================================
-   MOBILE FIX (up to 480px)
+   MOBILE BADGE FIX (up to 480px)
 =========================================================== */
 @media (max-width: 480px) {
   .badge-fix {
     padding-left: 8px !important;
     padding-right: 8px !important;
-    transform: none !important; /* Prevent GSAP push */
+    transform: none !important;
     letter-spacing: 1px !important;
   }
 
@@ -152,22 +180,31 @@ a.slide-btn:focus {
 
 /* ===========================================================
    ULTRA SMALL SCREEN FIX (260px – 360px)
-   → WRAP allowed
+   → WRAP badges automatically
 =========================================================== */
 @media (max-width: 360px) {
   .badge-fix {
-    white-space: normal !important;  /* allow wrapping */
-    text-align: center;
-    padding-left: 6px !important;
-    padding-right: 6px !important;
-    padding-top: 4px !important;
-    padding-bottom: 4px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    white-space: normal !important;
+    text-align: center !important;
+    padding: 4px 6px !important;
     gap: 4px !important;
+    max-width: 90% !important;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .badge-text {
     white-space: normal !important;
     font-size: 11px !important;
     line-height: 1.15 !important;
+  }
+
+  .badge-fix span:first-child {
+    width: 6px !important;
+    height: 6px !important;
   }
 }
