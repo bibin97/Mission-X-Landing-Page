@@ -7,7 +7,7 @@
    GLOBAL THEME VARIABLES
 =========================================================== */
 :root {
-  --bg: #f3f5f7;
+  --bg: #f0f2f4;          /* Matches hero background */
   --surface: #ffffff;
 
   --text-dark: #083b3a;
@@ -34,17 +34,20 @@ body {
 }
 
 /* ===========================================================
-   NAVBAR GLASS EFFECT
+   NAVBAR GLASS EFFECT (fixed + transparent)
 =========================================================== */
 .nav-glass {
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  background: rgba(255, 255, 255, 0.65);
+
+  /* Same bg as page but transparent → perfect glass */
+  background: rgba(240, 242, 244, 0.55) !important;
+
   box-shadow: 0 2px 18px rgba(0, 0, 0, 0.05);
 }
 
 /* ===========================================================
-   UNIVERSAL BUTTON ANIMATION
+   BUTTON HOVER (smooth + no lag)
 =========================================================== */
 button,
 .slide-btn,
@@ -69,7 +72,7 @@ a.slide-btn:focus {
 }
 
 /* ===========================================================
-   SECTION SPACING (reduced globally)
+   SECTION SPACING
 =========================================================== */
 section {
   margin-top: 40px !important;
@@ -90,7 +93,6 @@ section {
   }
 }
 
-/* Optional tighter padding inside sections */
 .section-padding {
   padding-top: 20px !important;
   padding-bottom: 20px !important;
@@ -128,7 +130,7 @@ section {
 }
 
 /* ===========================================================
-   DISABLE HIDE/FADE DEFAULT
+   DISABLE DEFAULT ANIMATIONS
 =========================================================== */
 .reveal-up {
   opacity: 1 !important;
@@ -145,7 +147,7 @@ section {
 }
 
 /* ===========================================================
-   BADGE FIX (main logic)
+   BADGE FIX (main)
 =========================================================== */
 .badge-fix {
   display: inline-flex;
@@ -157,7 +159,6 @@ section {
 }
 
 .badge-text {
-  display: inline-block;
   white-space: nowrap;
   max-width: 100%;
 }
@@ -169,32 +170,25 @@ section {
   .badge-fix {
     padding-left: 8px !important;
     padding-right: 8px !important;
-    transform: none !important;
     letter-spacing: 1px !important;
   }
-
   .badge-text {
     font-size: 12px !important;
   }
 }
 
 /* ===========================================================
-   ULTRA SMALL SCREEN FIX (260px – 360px)
-   → WRAP badges automatically
+   ULTRA SMALL SCREENS (260–360px)
 =========================================================== */
 @media (max-width: 360px) {
   .badge-fix {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
     flex-wrap: wrap;
     white-space: normal !important;
     text-align: center !important;
     padding: 4px 6px !important;
     gap: 4px !important;
     max-width: 90% !important;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
   }
 
   .badge-text {
@@ -207,4 +201,11 @@ section {
     width: 6px !important;
     height: 6px !important;
   }
+}
+
+/* ===========================================================
+   GLOBAL HEADING COLOR (teal)
+=========================================================== */
+h1, h2, h3, h4, h5, h6 {
+  color: #008080 !important;
 }

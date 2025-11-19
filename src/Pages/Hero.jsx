@@ -23,10 +23,11 @@ export default function Hero() {
 
 
           {/* Main Heading (Typing) */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[var(--text-dark)] leading-tight reveal-typing">
-            Transform Your Learning with{" "}
-            <span className="text-[var(--brand-teal)]">Mission X</span>
-          </h1>
+      <h1 className="text-4xl sm:text-5xl font-extrabold text-[var(--text-dark)] leading-tight reveal-typing ">
+  Transform Your <span className="whitespace-nowrap">Learning</span> with <br />
+  Mission X
+</h1>
+
 
           {/* Description (Typing) */}
           <p className="text-[var(--text)] max-w-xl text-base sm:text-lg reveal-typing">
