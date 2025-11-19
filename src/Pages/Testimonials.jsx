@@ -21,7 +21,7 @@ const testimonialsData = [
   },
   {
     id: 3,
-    rating: 4,
+    rating: 5,
     content:
       "The mission-based learning boosted my confidence from day one. Highly recommended for exam preparation!",
     author: "Priya Verma",

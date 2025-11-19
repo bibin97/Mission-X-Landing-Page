@@ -137,8 +137,8 @@ export default function Missions() {
 
                 {/* Button */}
                 <button
-                  className="w-full py-3 rounded-full bg-teal-600 text-white font-semibold 
-                  hover:bg-teal-700 transition-all"
+                  className="w-full py-3 rounded-full bg-white text-black font-semibold 
+                  hover:bg-yellow-500 transition-all"
                 >
                   {m.progress === 100 ? "Completed ✓" : "Start Mission"}
                 </button>

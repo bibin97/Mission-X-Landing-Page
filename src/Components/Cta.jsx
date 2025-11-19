@@ -72,18 +72,23 @@ export default function Cta() {
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row justify-center gap-5 mb-10 reveal-up">
-            <SlideButton
-              as="a"
-              href="https://wa.me/8281832158"
-              className="px-8 py-4 text-base"
-            >
-              Join Free on WhatsApp
-            </SlideButton>
+      <SlideButton
+                    as="a"
+                    href="https://wa.me/8281832158"
+                    className="px-8 py-4 text-base"
+                    baseBg="#f8ba2b"
+                    fillColor="#f8ba2b"
+                    textColor="#000"
+                  >
+                    Join Free on WhatsApp
+                  </SlideButton>
+
 
             <a
               href="#missions"
-              className="px-8 py-4 rounded-full font-semibold border border-gray-300 
-                text-[var(--text-dark)] hover:bg-gray-50 transition-all btn-magnetic"
+              className="px-7 py-4 rounded-full border border-gray-300
+              text-[var(--text-dark)] font-semibold bg-white hover:bg-yellow-500 
+              transition-all shadow-sm"
             >
               Explore Missions
             </a>

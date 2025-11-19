@@ -206,6 +206,23 @@ section {
 /* ===========================================================
    GLOBAL HEADING COLOR (teal)
 =========================================================== */
-h1, h2, h3, h4, h5, h6 {
+h1,h2 {
   color: #008080 !important;
+}
+ 
+/* Card paragraphs = gray-700 */
+.card p {
+  color: #374151 !important;   /* gray-700 */
+}
+/* Hide navbar button in mobile (below 640px) */
+@media (max-width: 640px) {
+  .nav-cta-btn,
+  .nav-cta-btn-root {
+    display: none !important;
+  }
+}
+
+
+.nav-cta-btn {
+  color: #111827 !important;  /* gray-900 */
 }

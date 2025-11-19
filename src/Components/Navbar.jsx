@@ -59,7 +59,7 @@ export default function Navbar() {
         <SlideButton
           as="a"
           href="#join"
-          className="px-4 py-2 rounded-full text-white font-semibold slide-btn btn-animate navbar-reveal"
+          className="px-4 py-2 rounded-full text-black font-semibold slide-btn btn-animate navbar-reveal"
           baseBg="#f8ba2b"
           fillColor="#f8ba2b"
         >
@@ -101,15 +101,18 @@ export default function Navbar() {
 
           {/* MOBILE CTA */}
           <div className="pt-2 navbar-reveal">
-            <SlideButton
-              as="a"
-              href="#join"
-              className="w-full block text-center px-4 py-3 font-semibold slide-btn btn-animate"
-              baseBg="#f8ba2b"
-              fillColor="#f8ba2b"
-            >
-              Join Free
-            </SlideButton>
+       <SlideButton
+  as="a"
+  href="#join"
+  className="navbar-desktop-cta px-4 py-2 rounded-full font-semibold slide-btn btn-animate navbar-reveal text-black"
+  baseBg="#f8ba2b"
+  fillColor="#f8ba2b"
+  textColor="#000"
+>
+  Join Free
+</SlideButton>
+
+
           </div>
         </div>
       </div>
