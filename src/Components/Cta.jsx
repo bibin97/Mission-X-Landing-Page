@@ -86,7 +86,7 @@ export default function Cta() {
             <a
               href="#missions"
               className="px-7 py-4 rounded-full border border-gray-300
-              text-[var(--text-dark)] font-semibold bg-white hover:bg-yellow-500 
+              text-[var(--text-dark)] font-semibold bg-white hover:bg-yellow-400 
               transition-all shadow-sm"
             >
               Explore Missions
