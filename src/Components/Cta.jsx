@@ -1,5 +1,5 @@
 // src/Pages/CTA.jsx
-// Mission X – Premium CTA Section (Teal Buttons + Yellow Highlights)
+// Mission X – Premium CTA Section (Boxed Version)
 
 import { useState, useEffect } from "react";
 import SlideButton from "./SlideButton";
@@ -32,7 +32,7 @@ export default function Cta() {
   }, []);
 
   const timeBox = (value, label) => (
-    <div className="reveal-item bg-white rounded-xl p-5 border border-gray-200 shadow-sm min-w-[95px] text-center">
+    <div className="reveal-up bg-white rounded-xl p-5 border border-gray-200 shadow-sm min-w-[95px] text-center">
       <div className="text-3xl font-bold text-[var(--text-dark)]">
         {String(value).padStart(2, "0")}
       </div>
@@ -44,19 +44,19 @@ export default function Cta() {
     <section id="join" className="section-padding reveal-up">
       <div className="max-w-4xl mx-auto px-6">
 
-        <div className="card-soft rounded-3xl p-10 text-center">
+        {/* FULL WHITE ROUNDED BOX */}
+        <div className="bg-white rounded-3xl p-10 md:p-12 shadow-xl border border-gray-200 text-center">
 
           {/* Badge */}
-    <div
-  className="badge-fix inline-flex items-center gap-2 px-4 py-2 rounded-full
-  bg-teal-100 text-[var(--brand-teal)] border border-teal-200 font-semibold shadow-sm reveal-typing overflow-hidden"
->
-  <span className="w-2 h-2 rounded-full bg-[var(--brand-yellow)] animate-pulse"></span>
-  <span className="badge-text">Limited Premium Access</span>
-</div>
-
-
-
+          <div className="flex justify-center mb-4">
+            <div
+              className="badge-fix inline-flex items-center gap-2 px-4 py-2 rounded-full
+              bg-teal-100 text-[var(--brand-teal)] border border-teal-200 font-semibold shadow-sm reveal-typing overflow-hidden"
+            >
+              <span className="w-2 h-2 rounded-full bg-[var(--brand-yellow)] animate-pulse"></span>
+              <span className="badge-text">Limited Premium Access</span>
+            </div>
+          </div>
 
           {/* Heading */}
           <h3 className="text-3xl sm:text-4xl font-bold text-[var(--text-dark)] mb-4 reveal-typing">
@@ -71,7 +71,7 @@ export default function Cta() {
           </p>
 
           {/* Buttons */}
-          <div className="flex flex-col sm:flex-row justify-center gap-5 mb-10 reveal-item">
+          <div className="flex flex-col sm:flex-row justify-center gap-5 mb-10 reveal-up">
             <SlideButton
               as="a"
               href="https://wa.me/8281832158"
@@ -105,7 +105,6 @@ export default function Cta() {
           <p className="text-[var(--text-muted)] text-sm font-medium reveal-typing">
             No credit card required • Instant access • 100% free to start
           </p>
-
         </div>
 
       </div>
