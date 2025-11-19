@@ -14,11 +14,13 @@ export default function Hero() {
         <div className="text-left space-y-6 reveal-item">
 
           {/* Badge (Typing) */}
-          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full
-            bg-teal-100 text-[var(--brand-teal)] border border-teal-200 font-semibold shadow-sm reveal-typing">
-            <span className="w-2 h-2 rounded-full bg-[var(--brand-yellow)] animate-pulse"></span>
-            Premium AI-Powered Learning
-          </div>
+     <div className="badge-fix inline-flex items-center gap-2 px-4 py-2 rounded-full
+  bg-teal-100 text-[var(--brand-teal)] border border-teal-200 font-semibold shadow-sm reveal-typing">
+  <span className="w-2 h-2 rounded-full bg-[var(--brand-yellow)] animate-pulse"></span>
+  <span className="badge-text">Premium AI-Powered Learning</span>
+</div>
+
+
 
           {/* Main Heading (Typing) */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[var(--text-dark)] leading-tight reveal-typing">

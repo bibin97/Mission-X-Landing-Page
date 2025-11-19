@@ -42,11 +42,12 @@ export default function Missions() {
         <div className="text-center mb-14 reveal-item">
 
           {/* Badge */}
-          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full 
-            bg-teal-100 text-[var(--brand-teal)] border border-teal-200 font-semibold mb-5 reveal-typing">
-            <span className="w-2 h-2 rounded-full bg-[var(--brand-yellow)] animate-pulse"></span>
-            Premium Mission System
-          </div>
+          <div className="badge-fix inline-flex items-center gap-2 px-4 py-2 rounded-full
+  bg-teal-100 text-[var(--brand-teal)] border border-teal-200 font-semibold shadow-sm reveal-typing overflow-hidden">
+  <span className="w-2 h-2 rounded-full bg-[var(--brand-yellow)] animate-pulse"></span>
+  <span className="badge-text">Premium Mission System</span>
+</div>
+
 
           {/* Heading */}
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[var(--text-dark)] mb-3 reveal-typing">

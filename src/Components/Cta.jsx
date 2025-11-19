@@ -47,12 +47,16 @@ export default function Cta() {
         <div className="card-soft rounded-3xl p-10 text-center">
 
           {/* Badge */}
-          <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full 
-              bg-[var(--brand-yellow)]/20 text-[var(--text-dark)]
-              border border-[var(--brand-yellow)]/50 font-semibold mb-6 reveal-typing">
-            <span className="w-2 h-2 bg-[var(--brand-yellow)] rounded-full animate-pulse"></span>
-            Limited Time Premium Access
-          </div>
+    <div
+  className="badge-fix inline-flex items-center gap-2 px-4 py-2 rounded-full
+  bg-teal-100 text-[var(--brand-teal)] border border-teal-200 font-semibold shadow-sm reveal-typing overflow-hidden"
+>
+  <span className="w-2 h-2 rounded-full bg-[var(--brand-yellow)] animate-pulse"></span>
+  <span className="badge-text">Limited Premium Access</span>
+</div>
+
+
+
 
           {/* Heading */}
           <h3 className="text-3xl sm:text-4xl font-bold text-[var(--text-dark)] mb-4 reveal-typing">

@@ -69,13 +69,10 @@ a.slide-btn:focus {
 }
 
 /* ===========================================================
-   SECTION SPACING (SAFE DEFAULT)
+   SECTION SPACING
 =========================================================== */
-
-
-/* Special top spacing for Hero under sticky navbar */
 #hero {
-  padding-top: 140px; 
+  padding-top: 140px;
 }
 
 /* ===========================================================
@@ -88,7 +85,7 @@ a.slide-btn:focus {
 }
 
 /* ===========================================================
-   PARTICLE CURSOR (IF USED)
+   PARTICLE CURSOR
 =========================================================== */
 .cursor-dot {
   width: 12px;
@@ -103,7 +100,7 @@ a.slide-btn:focus {
 }
 
 /* ===========================================================
-   FIXED: DISABLE HIDE/FADE ANIMATION
+   DISABLE HIDE/FADE DEFAULT
 =========================================================== */
 .reveal-up {
   opacity: 1 !important;
@@ -114,6 +111,63 @@ a.slide-btn:focus {
 #particle-cursor {
   z-index: 999999 !important;
 }
+
 .split-text .char {
   opacity: 0;
+}
+
+/* ===========================================================
+   BADGE FIX (main logic)
+=========================================================== */
+.badge-fix {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.badge-text {
+  display: inline-block;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+/* ===========================================================
+   MOBILE FIX (up to 480px)
+=========================================================== */
+@media (max-width: 480px) {
+  .badge-fix {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    transform: none !important; /* Prevent GSAP push */
+    letter-spacing: 1px !important;
+  }
+
+  .badge-text {
+    font-size: 12px !important;
+  }
+}
+
+/* ===========================================================
+   ULTRA SMALL SCREEN FIX (260px – 360px)
+   → WRAP allowed
+=========================================================== */
+@media (max-width: 360px) {
+  .badge-fix {
+    white-space: normal !important;  /* allow wrapping */
+    text-align: center;
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+    gap: 4px !important;
+  }
+
+  .badge-text {
+    white-space: normal !important;
+    font-size: 11px !important;
+    line-height: 1.15 !important;
+  }
 }
