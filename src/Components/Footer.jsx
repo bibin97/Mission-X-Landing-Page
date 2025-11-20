@@ -32,18 +32,19 @@ export default function Footer() {
             Mission X — Learn Smarter. Score Higher.
           </h3>
           <p className="text-[var(--text-muted)] text-sm mt-2 max-w-xl mx-auto reveal-typing">
-            India’s most refined mission-based learning system designed to build confidence,
-            improve understanding, and help every student achieve their highest potential.
+            A next-generation mission-based learning system built to boost clarity, confidence,
+            and high-scoring performance for every student.
           </p>
         </div>
 
         {/* Divider */}
         <div className="w-full h-px bg-gray-200 my-8 reveal-item"></div>
 
-        {/* Bottom Copyright */}
+        {/* Bottom Section */}
         <div className="text-center text-xs text-[var(--text-muted)] reveal-typing">
           © {new Date().getFullYear()}{" "}
-          <span className="text-[var(--brand-teal)] font-semibold">Mission X</span>. All rights reserved.
+          <span className="text-[var(--brand-teal)] font-semibold">Mission X</span>.  
+          Empowering students with smarter learning — every single day.
         </div>
 
       </div>

@@ -3,33 +3,33 @@ import MouseTilt from "../Components/MouseTilt";
 const featuresList = [
   {
     icon: "🚀",
-    title: "25 Structured Missions",
-    desc: "Clear chapter-based missions designed to build strong fundamentals step-by-step."
+    title: "25 High-Impact Missions",
+    desc: "A structured, outcome-focused mission system that covers every chapter with clarity, deep understanding, and smart practice."
   },
   {
     icon: "🤖",
-    title: "AI Mentor 24×7",
-    desc: "Instant solutions and explanations from our advanced AI Mentor whenever you're stuck."
+    title: "AI Mentor — Instant Help 24×7",
+    desc: "Get step-by-step solutions, explanations, and concept breakdowns instantly — powered by our advanced AI mentor."
   },
   {
     icon: "👨‍🏫",
-    title: "Expert Mentor Support",
-    desc: "Live doubt support from experienced teachers during crucial learning moments."
+    title: "Super Mentor Support",
+    desc: "Top educators guide you with personalised tips, corrections, revision plans, and exam strategies during crucial learning moments."
   },
   {
     icon: "🎯",
-    title: "Exam-Focused Challenges",
-    desc: "Score-boosting practice challenges based on real CBSE exam patterns."
+    title: "Exam-Ready Practice System",
+    desc: "Score-boosting practice sets designed using real CBSE patterns to improve accuracy, speed, and problem-solving confidence."
   },
   {
     icon: "🎁",
-    title: "Premium Rewards",
-    desc: "Unlock badges, perks, early access lessons and exclusive member benefits."
+    title: "Exclusive Rewards & Unlocks",
+    desc: "Earn badges, complete streaks, unlock premium perks, and access early lessons as you progress through missions."
   },
   {
     icon: "🌐",
-    title: "Community Learning",
-    desc: "Join a supportive group of 10,000+ students learning together every day."
+    title: "10,000+ Student Community",
+    desc: "Learn together with motivated students, share ideas, discuss doubts, and stay consistent through community challenges."
   }
 ];
 
@@ -37,34 +37,28 @@ export default function Features() {
   return (
     <section
       id="features"
-      className="section-padding bg-[var(--bg)]  reveal-up"
+      className="section-padding bg-[var(--bg)] reveal-up"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
 
-        {/* ----------------------- */}
         {/* Section Header */}
-        {/* ----------------------- */}
         <div className="text-center mb-14 reveal-item">
           <div className="badge-fix inline-flex items-center gap-2 px-4 py-2 rounded-full
-  bg-teal-100 text-[var(--brand-teal)] border border-teal-200 font-semibold shadow-sm reveal-typing overflow-hidden">
-  <span className="w-2 h-2 rounded-full bg-[var(--brand-yellow)] animate-pulse"></span>
-  <span className="badge-text">Premium Learning Ecosystem</span>
-</div>
-
+          bg-teal-100 text-[var(--brand-teal)] border border-teal-200 font-semibold shadow-sm reveal-typing overflow-hidden">
+            <span className="w-2 h-2 rounded-full bg-[var(--brand-yellow)] animate-pulse"></span>
+            <span className="badge-text">AI-Powered Premium Learning System</span>
+          </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[var(--text-dark)] mb-3 reveal-typing">
-            Why Students Choose Mission X
+            Why Students Love Mission X
           </h2>
 
-          <p className="text-[var(--text)] max-w-2xl mx-auto text-base sm:text-lg reveal-typing">
-            A refined mission-based system with powerful tools, AI mentorship,
-            and expert-guided pathways built for results.
+          <p className="text-gray-700 max-w-2xl mx-auto text-base sm:text-lg reveal-typing">
+            A powerful mission-based system built with AI mentorship and expert guidance — designed to deliver real exam results.
           </p>
         </div>
 
-        {/* ----------------------- */}
         {/* Features Grid */}
-        {/* ----------------------- */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
 
           {featuresList.map((item, i) => (
@@ -86,7 +80,7 @@ export default function Features() {
                 </h3>
 
                 {/* Description */}
-                <p className="text-[var(--text-muted)] text-sm leading-relaxed reveal-typing">
+                <p className="text-gray-700 text-sm leading-relaxed reveal-typing">
                   {item.desc}
                 </p>
 

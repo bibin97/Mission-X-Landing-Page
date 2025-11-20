@@ -17,20 +17,23 @@ export default function Hero() {
   bg-teal-100 text-[var(--brand-teal)] border border-teal-200 font-semibold shadow-sm reveal-typing"
           >
             <span className="w-2 h-2 rounded-full bg-[var(--brand-yellow)] animate-pulse"></span>
-            <span className="badge-text">Premium AI-Powered Learning</span>
+            <span className="badge-text">
+              India’s Smartest Maths Learning System
+            </span>
           </div>
 
           {/* Main Heading (Typing) */}
           <h1 className="text-4xl sm:text-5xl font-extrabold text-[var(--text-dark)] leading-tight reveal-typing ">
-            Transform Your <span className="whitespace-nowrap">Learning</span>{" "}
-            with <br />
-            Mission X
+            Score 90+ In <span className="whitespace-nowrap"> </span> <br />
+            Maths The Smart <br />
+            Mission Based Way
           </h1>
 
           {/* Description (Typing) */}
           <p className="text-[var(--text)] max-w-xl text-base sm:text-lg reveal-typing">
-            Mission-based learning powered by AI, expert mentors, and a
-            structured curriculum designed to help students score{" "}
+            Crack your entire syllabus in 25 structured missions with the power
+            of AI learning + real human mentors. Just 1–1.5 hours/day is all you
+            need to transform your maths performance.{" "}
             <span className="font-semibold text-[var(--brand-teal)]">90+</span>.
           </p>
 
@@ -41,10 +44,9 @@ export default function Hero() {
               href="https://wa.me/8281832158"
               className="px-8 py-4 text-base"
               baseBg="#f8ba2b"
-
               textColor="#000"
             >
-              Join Free on WhatsApp
+              Start Free on WhatsApp
             </SlideButton>
 
             <a

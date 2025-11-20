@@ -5,7 +5,7 @@ const testimonialsData = [
     id: 1,
     rating: 5,
     content:
-      "Mission X completely changed the way I understand Math. The missions helped me score above 95 effortlessly!",
+      "Mission X made Math finally click for me. The missions simplified every tough chapter, and my score jumped from 78 to 95+. It changed my confidence completely!",
     author: "Arushi Singh",
     role: "CBSE Student",
     avatar: "👩‍🎓",
@@ -14,16 +14,16 @@ const testimonialsData = [
     id: 2,
     rating: 5,
     content:
-      "Well-structured missions + AI mentor = unbeatable combination. Students grasp concepts faster than ever.",
+      "The combination of AI mentor + structured missions is a game changer. My students understand concepts faster, make fewer mistakes, and revise smarter.",
     author: "Mr. Kumar",
-    role: "Math Teacher",
+    role: "Mathematics Teacher",
     avatar: "👨‍🏫",
   },
   {
     id: 3,
     rating: 5,
     content:
-      "The mission-based learning boosted my confidence from day one. Highly recommended for exam preparation!",
+      "From day one, the mission-style learning built my accuracy and speed. The explanations were super clear—perfect for competitive exam preparation.",
     author: "Priya Verma",
     role: "NEET Aspirant",
     avatar: "👩‍💻",
@@ -40,11 +40,10 @@ export default function Testimonials() {
 
           {/* Badge */}
           <div className="badge-fix inline-flex items-center gap-2 px-4 py-2 rounded-full
-  bg-teal-100 text-[var(--brand-teal)] border border-teal-200 font-semibold shadow-sm reveal-typing overflow-hidden">
-  <span className="w-2 h-2 rounded-full bg-[var(--brand-yellow)] animate-pulse"></span>
-  <span className="badge-text">Trusted by 10,000+ Students</span>
-</div>
-
+            bg-teal-100 text-[var(--brand-teal)] border border-teal-200 font-semibold shadow-sm reveal-typing overflow-hidden">
+            <span className="w-2 h-2 rounded-full bg-[var(--brand-yellow)] animate-pulse"></span>
+            <span className="badge-text">Trusted by 10,000+ Learners Nationwide</span>
+          </div>
 
           {/* Heading */}
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[var(--text-dark)] mb-3 reveal-typing">
@@ -53,7 +52,7 @@ export default function Testimonials() {
 
           {/* Paragraph */}
           <p className="text-[var(--text-muted)] max-w-3xl mx-auto text-base sm:text-lg reveal-typing">
-            Real experiences from students and educators who achieved extraordinary results with Mission X.
+            Real reviews from learners and educators who transformed their maths journey with Mission X.
           </p>
         </div>
 

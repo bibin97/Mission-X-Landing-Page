@@ -54,34 +54,34 @@ export default function Cta() {
               bg-teal-100 text-[var(--brand-teal)] border border-teal-200 font-semibold shadow-sm reveal-typing overflow-hidden"
             >
               <span className="w-2 h-2 rounded-full bg-[var(--brand-yellow)] animate-pulse"></span>
-              <span className="badge-text">Limited Premium Access</span>
+              <span className="badge-text">Early Access to Premium Missions</span>
             </div>
           </div>
 
           {/* Heading */}
           <h3 className="text-3xl sm:text-4xl font-bold text-[var(--text-dark)] mb-4 reveal-typing">
-            Join Mission X & Boost Your Math Score
+            Start Your Mission & Transform Your Maths Score
           </h3>
 
           {/* Description */}
           <p className="text-[var(--text-muted)] max-w-2xl mx-auto mb-10 text-lg reveal-typing">
-            Get instant access to missions, AI mentor help, expert guidance, and
-            step-by-step learning paths — trusted by over{" "}
-            <span className="text-[var(--brand-yellow)] font-semibold">10,000+</span> students.
+            Unlock structured missions, 24×7 AI mentor help, expert guidance, and
+            a complete learning roadmap trusted by over{" "}
+            <span className="text-[var(--brand-yellow)] font-semibold">10,000+ learners</span>.
+            Begin your journey to confident, high-scoring maths.
           </p>
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row justify-center gap-5 mb-10 reveal-up">
-      <SlideButton
-                    as="a"
-                    href="https://wa.me/8281832158"
-                    className="px-8 py-4 text-base"
-                    baseBg="#f8ba2b"
-                    textColor="#000"
-                  >
-                    Join Free on WhatsApp
-                  </SlideButton>
-
+            <SlideButton
+              as="a"
+              href="https://wa.me/8281832158"
+              className="px-8 py-4 text-base"
+              baseBg="#f8ba2b"
+              textColor="#000"
+            >
+              Join Free on WhatsApp
+            </SlideButton>
 
             <a
               href="#missions"
@@ -95,7 +95,7 @@ export default function Cta() {
 
           {/* Timer Label */}
           <p className="text-[var(--text-dark)] font-medium mb-5 reveal-typing">
-            ⏰ Offer Ends in:
+            ⏰ Offer Ends In:
           </p>
 
           {/* Timer */}
