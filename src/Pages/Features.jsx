@@ -42,11 +42,16 @@ export default function Features() {
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
 
         {/* Section Header */}
-        <div className="text-center mb-14 reveal-item">
-          <div className="badge-fix inline-flex items-center gap-2 px-4 py-2 rounded-full
-          bg-teal-100 text-[var(--brand-teal)] border border-teal-200 font-semibold shadow-sm reveal-typing overflow-hidden">
+        <div className="text-center mb-14">
+
+          <div
+            className="badge-fix inline-flex items-center gap-2 px-4 py-2 rounded-full
+            bg-teal-100 text-[var(--brand-teal)] border border-teal-200 font-semibold shadow-sm overflow-hidden"
+          >
             <span className="w-2 h-2 rounded-full bg-[var(--brand-yellow)] animate-pulse"></span>
-            <span className="badge-text">AI-Powered Premium Learning System</span>
+            <span className="badge-text reveal-typing">
+              AI-Powered Premium Learning System
+            </span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[var(--text-dark)] mb-3 reveal-typing">
@@ -65,12 +70,15 @@ export default function Features() {
             <MouseTilt key={i}>
               <div
                 className="p-7 bg-white rounded-2xl shadow-sm border border-gray-200 h-full 
-                flex flex-col justify-between hover:shadow-lg transition-all duration-300 reveal-item"
+                flex flex-col justify-between hover:shadow-xl transition-all duration-300 
+                reveal-card"
               >
 
-                {/* Icon */}
-                <div className="w-16 h-16 rounded-xl flex items-center justify-center text-3xl mb-5
-                  bg-teal-100 border border-teal-200">
+                {/* Icon Box */}
+                <div
+                  className="w-16 h-16 rounded-xl flex items-center justify-center text-3xl mb-5
+                  bg-teal-100 border border-teal-200 reveal-img"
+                >
                   {item.icon}
                 </div>
 
@@ -85,7 +93,7 @@ export default function Features() {
                 </p>
 
                 {/* Learn More */}
-                <div className="mt-6">
+                <div className="mt-6 reveal-btn">
                   <a
                     href="#join"
                     className="inline-flex items-center gap-2 text-[var(--brand-teal)] font-semibold hover:text-teal-700 transition-all"

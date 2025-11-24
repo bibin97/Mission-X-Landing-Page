@@ -7,12 +7,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function UseAnimations() {
   useEffect(() => {
-
     const ctx = gsap.context(() => {
 
       /* =====================================================
-         1. HIGH INTENSITY OYUKKU WAVE TEXT ANIMATION
-            (Apply to ALL .reveal-typing)
+         1. HIGH WAVE TEXT ANIMATION (ALL TEXT)
       ===================================================== */
       const elements = document.querySelectorAll(".reveal-typing");
 
@@ -21,11 +19,11 @@ export default function UseAnimations() {
 
         gsap.from(text.chars, {
           opacity: 0,
-          y: 20,                     // stronger lift
-          rotation: 12,              // wave twist
-          stagger: 0.045,            // stronger stagger
-          duration: 0.65,
-          ease: "back.out(2.5)",     // elastic wave feel
+          y: 25,
+          rotation: 12,
+          stagger: 0.045,
+          duration: 0.7,
+          ease: "back.out(2.8)",
           scrollTrigger: {
             trigger: el,
             start: "top 85%",
@@ -35,28 +33,78 @@ export default function UseAnimations() {
       });
 
       /* =====================================================
-         2. SECTION FADE-UP ANIMATION
+         2. BUTTON ENTRY ANIMATION
       ===================================================== */
-      gsap.utils.toArray(".reveal-up").forEach((el) => {
-        gsap.from(el, {
+      gsap.utils.toArray(".reveal-btn").forEach((btn) => {
+        gsap.from(btn, {
           opacity: 0,
-          y: 40,
-          duration: 0.7,
+          scale: 0.8,
+          y: 20,
+          duration: 0.6,
           ease: "power3.out",
           scrollTrigger: {
-            trigger: el,
+            trigger: btn,
             start: "top 90%",
-            toggleActions: "play none none none",
           },
         });
       });
 
       /* =====================================================
-         3. Global ScrollTrigger Optimization
+         3. CARD FADE + POP ANIMATION
+      ===================================================== */
+      gsap.utils.toArray(".reveal-card").forEach((card) => {
+        gsap.from(card, {
+          opacity: 0,
+          y: 40,
+          scale: 0.92,
+          duration: 0.7,
+          ease: "back.out(1.8)",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 92%",
+          },
+        });
+      });
+
+      /* =====================================================
+         4. IMAGE FLOAT-IN ANIMATION
+      ===================================================== */
+      gsap.utils.toArray(".reveal-img").forEach((img) => {
+        gsap.from(img, {
+          opacity: 0,
+          y: 40,
+          scale: 0.95,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: img,
+            start: "top 90%",
+          },
+        });
+      });
+
+      /* =====================================================
+         5. SECTION FADE-UP
+      ===================================================== */
+      gsap.utils.toArray(".reveal-up").forEach((el) => {
+        gsap.from(el, {
+          opacity: 0,
+          y: 30,
+          duration: 0.6,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 95%",
+          },
+        });
+      });
+
+      /* =====================================================
+         6. GSAP Optimization
       ===================================================== */
       ScrollTrigger.defaults({
+        once: true,
         markers: false,
-        once: true,   // run animation ONLY once
       });
 
     });

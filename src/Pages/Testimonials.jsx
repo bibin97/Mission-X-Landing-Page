@@ -32,17 +32,22 @@ const testimonialsData = [
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="section-padding bg-[var(--bg)]  reveal-up">
+    <section id="testimonials" className="section-padding bg-[var(--bg)] reveal-up">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
 
         {/* Header */}
-        <div className="text-center mb-14 reveal-item">
+        <div className="text-center mb-14">
 
           {/* Badge */}
-          <div className="badge-fix inline-flex items-center gap-2 px-4 py-2 rounded-full
-            bg-teal-100 text-[var(--brand-teal)] border border-teal-200 font-semibold shadow-sm reveal-typing overflow-hidden">
+          <div
+            className="badge-fix inline-flex items-center gap-2 px-4 py-2 rounded-full
+            bg-teal-100 text-[var(--brand-teal)] border border-teal-200 font-semibold shadow-sm overflow-hidden"
+          >
             <span className="w-2 h-2 rounded-full bg-[var(--brand-yellow)] animate-pulse"></span>
-            <span className="badge-text">Trusted by 10,000+ Learners Nationwide</span>
+
+            <span className="badge-text reveal-typing">
+              Trusted by 10,000+ Learners Nationwide
+            </span>
           </div>
 
           {/* Heading */}
@@ -64,7 +69,7 @@ export default function Testimonials() {
               <div
                 className="p-7 bg-white rounded-2xl shadow-sm border border-gray-200 
                 h-full flex flex-col justify-between hover:shadow-xl transition-all
-                duration-300 reveal-item"
+                duration-300 reveal-card"
               >
 
                 {/* Rating */}
@@ -88,8 +93,10 @@ export default function Testimonials() {
 
                 {/* Author */}
                 <div className="flex items-center gap-4 mt-auto">
+
+                  {/* Avatar */}
                   <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center 
-                    text-2xl shadow-sm">
+                    text-2xl shadow-sm reveal-img">
                     {t.avatar}
                   </div>
 
@@ -97,8 +104,12 @@ export default function Testimonials() {
                     <div className="font-semibold text-[var(--text-dark)] reveal-typing">
                       {t.author}
                     </div>
-                    <div className="text-sm text-gray-500">{t.role}</div>
+
+                    <div className="text-sm text-gray-500 reveal-typing">
+                      {t.role}
+                    </div>
                   </div>
+
                 </div>
 
               </div>
