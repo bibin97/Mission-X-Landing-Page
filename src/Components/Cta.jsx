@@ -12,7 +12,7 @@ export default function Cta() {
     seconds: 59,
   });
 
-  // Countdown Timer Logic
+  // Countdown Logic
   useEffect(() => {
     const interval = setInterval(() => {
       setTimeLeft((prev) => {
@@ -25,7 +25,7 @@ export default function Cta() {
         if (prev.hours > 0)
           return { hours: prev.hours - 1, minutes: 59, seconds: 59 };
 
-        return { hours: 23, minutes: 59, seconds: 59 };
+        return { hours: 23, minutes: 59, seconds: 59 }; // reset daily
       });
     }, 1000);
 
@@ -33,11 +33,13 @@ export default function Cta() {
   }, []);
 
   const timeBox = (value, label) => (
-    <div className="reveal-up bg-white rounded-xl p-5 border border-gray-200 shadow-sm min-w-[95px] text-center">
-      <div className="text-3xl font-bold text-[var(--text-dark)]">
+    <div className="reveal-card bg-white rounded-xl p-5 border border-gray-200 shadow-sm min-w-[95px] text-center">
+      <div className="text-3xl font-bold text-[var(--text-dark)] reveal-typing">
         {String(value).padStart(2, "0")}
       </div>
-      <div className="text-xs mt-1 text-[var(--text-muted)]">{label}</div>
+      <div className="text-xs mt-1 text-[var(--text-muted)] reveal-typing">
+        {label}
+      </div>
     </div>
   );
 
@@ -45,17 +47,20 @@ export default function Cta() {
     <section id="join" className="section-padding reveal-up">
       <div className="max-w-4xl mx-auto px-6">
 
-        {/* FULL WHITE ROUNDED BOX */}
-        <div className="bg-white rounded-3xl p-10 md:p-12 shadow-xl border border-gray-200 text-center">
+        {/* FULL BOX */}
+        <div className="bg-white rounded-3xl p-10 md:p-12 shadow-xl border border-gray-200 text-center reveal-up">
 
           {/* Badge */}
           <div className="flex justify-center mb-4">
             <div
               className="badge-fix inline-flex items-center gap-2 px-4 py-2 rounded-full
-              bg-teal-100 text-[var(--brand-teal)] border border-teal-200 font-semibold shadow-sm reveal-typing overflow-hidden"
+              bg-teal-100 text-[var(--brand-teal)] border border-teal-200 font-semibold 
+              shadow-sm overflow-hidden"
             >
               <span className="w-2 h-2 rounded-full bg-[var(--brand-yellow)] animate-pulse"></span>
-              <span className="badge-text">Early Access to Premium Missions</span>
+              <span className="badge-text reveal-typing">
+                Early Access to Premium Missions
+              </span>
             </div>
           </div>
 
@@ -72,22 +77,25 @@ export default function Cta() {
             Begin your journey to confident, high-scoring maths.
           </p>
 
-          {/* BUTTONS */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-10 reveal-up">
+          {/* BUTTONS — BOTH ANIMATED */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-10">
 
             {/* WhatsApp Button */}
-            <MagneticButton
-              href="https://wa.me/8281832158"
-              bg="#f8ba2b"
-              icon={<FaWhatsapp size={20} color="#25D366" />}
-            >
-              Join Free on WhatsApp
-            </MagneticButton>
+            <div className="reveal-btn">
+              <MagneticButton
+                href="https://wa.me/8281832158"
+                bg="#f8ba2b"
+                className="inline-flex items-center gap-2"
+                icon={<FaWhatsapp size={20} color="#25D366" />}
+              >
+                Join Free on WhatsApp
+              </MagneticButton>
+            </div>
 
             {/* Explore Button */}
             <a
               href="#missions"
-              className="px-7 py-4 rounded-full border border-gray-300
+              className="reveal-btn px-7 py-4 rounded-full border border-gray-300
               text-[var(--text-dark)] font-semibold bg-white hover:bg-yellow-400 
               transition-all shadow-sm flex items-center justify-center"
             >
@@ -100,7 +108,7 @@ export default function Cta() {
             ⏰ Offer Ends In:
           </p>
 
-          {/* Timer */}
+          {/* TIMER — ANIMATED CARDS */}
           <div className="flex justify-center gap-5 mb-10">
             {timeBox(timeLeft.hours, "Hours")}
             {timeBox(timeLeft.minutes, "Minutes")}
