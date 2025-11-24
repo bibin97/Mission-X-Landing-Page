@@ -11,50 +11,52 @@ export default function UseAnimations() {
     const ctx = gsap.context(() => {
 
       /* =====================================================
-         1. ONE-TIME TYPING ANIMATION (SUPER SMOOTH)
+         1. HIGH INTENSITY OYUKKU WAVE TEXT ANIMATION
+            (Apply to ALL .reveal-typing)
       ===================================================== */
-      const typingElements = document.querySelectorAll(".reveal-typing");
+      const elements = document.querySelectorAll(".reveal-typing");
 
-      typingElements.forEach((el) => {
+      elements.forEach((el) => {
         const text = new SplitType(el, { types: "chars" });
 
         gsap.from(text.chars, {
           opacity: 0,
-          y: 5,
-          stagger: 0.015,
-          duration: 0.5,
-          ease: "power1.out",
+          y: 20,                     // stronger lift
+          rotation: 12,              // wave twist
+          stagger: 0.045,            // stronger stagger
+          duration: 0.65,
+          ease: "back.out(2.5)",     // elastic wave feel
           scrollTrigger: {
             trigger: el,
-            start: "top 80%",
-            toggleActions: "play none none none", // only ONCE
+            start: "top 85%",
+            toggleActions: "play none none none",
           },
         });
       });
 
       /* =====================================================
-         2. SECTION FADE-UP (ZERO LAG)
+         2. SECTION FADE-UP ANIMATION
       ===================================================== */
       gsap.utils.toArray(".reveal-up").forEach((el) => {
         gsap.from(el, {
           opacity: 0,
-          y: 30,
-          duration: 0.6,
-          ease: "power2.out",
+          y: 40,
+          duration: 0.7,
+          ease: "power3.out",
           scrollTrigger: {
             trigger: el,
             start: "top 90%",
-            toggleActions: "play none none none", // no replay
+            toggleActions: "play none none none",
           },
         });
       });
 
       /* =====================================================
-         3. SCROLLTRIGGER GLOBAL OPTIMIZATION
+         3. Global ScrollTrigger Optimization
       ===================================================== */
       ScrollTrigger.defaults({
         markers: false,
-        once: true,      // NEVER rerun
+        once: true,   // run animation ONLY once
       });
 
     });
