@@ -1,6 +1,6 @@
 // src/components/Navbar.jsx
 import { useState, useEffect } from "react";
-import SlideButton from "./SlideButton";
+import SlideButton from "./MagneticButton";
 import logo from "../assets/mxlogo.png";
 
 export default function Navbar() {
@@ -36,9 +36,7 @@ export default function Navbar() {
             alt="Mission X"
             className="h-12 sm:h-14 w-auto object-contain navbar-reveal"
           />
-          <span className="hidden sm:inline-block text-lg font-semibold text-[var(--text-dark)] navbar-typing">
-            Mission X
-          </span>
+         
         </a>
 
         {/* DESKTOP NAV LINKS */}

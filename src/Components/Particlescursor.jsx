@@ -1,11 +1,11 @@
 import { useEffect, useRef } from "react";
 
 export default function ParticleCursor({
-  size = 24,
-  color = "rgba(0,150,136,0.55)",
-  glow = "rgba(0,150,136,0.4)",
-  blur = 25,
-  smooth = 0.15,
+  size = 18, // half of 24
+  color = "#008080", // teal color
+  glow = "rgba(0,128,128,0.4)", // matching glow
+  blur = 18, // slightly reduced for small cursor
+  smooth = 0.35, // faster tracking
 }) {
   const cursorRef = useRef(null);
   const pos = useRef({ x: 0, y: 0 });
@@ -24,6 +24,7 @@ export default function ParticleCursor({
     };
 
     const update = () => {
+      // faster & smoother catch-up
       pos.current.x = lerp(pos.current.x, target.current.x, smooth);
       pos.current.y = lerp(pos.current.y, target.current.y, smooth);
 
@@ -67,7 +68,7 @@ export default function ParticleCursor({
         mixBlendMode: "normal",
         boxShadow: `
           0 0 ${blur}px ${glow},
-          0 0 ${blur * 1.4}px ${glow}
+          0 0 ${blur * 1.3}px ${glow}
         `,
       }}
     ></div>

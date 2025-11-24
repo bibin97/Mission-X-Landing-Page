@@ -3,7 +3,7 @@ import MouseTilt from "../Components/MouseTilt";
 const featuresList = [
   {
     icon: "🚀",
-    title: "25 High-Impact Missions",
+    title: "45 High-Impact Missions",
     desc: "A structured, outcome-focused mission system that covers every chapter with clarity, deep understanding, and smart practice."
   },
   {

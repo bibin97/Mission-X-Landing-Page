@@ -1,8 +1,9 @@
 // src/Pages/CTA.jsx
 // Mission X – Premium CTA Section (Boxed Version)
 
+import { FaWhatsapp } from "react-icons/fa";
 import { useState, useEffect } from "react";
-import SlideButton from "./SlideButton";
+import MagneticButton from "./MagneticButton";
 
 export default function Cta() {
   const [timeLeft, setTimeLeft] = useState({
@@ -24,7 +25,7 @@ export default function Cta() {
         if (prev.hours > 0)
           return { hours: prev.hours - 1, minutes: 59, seconds: 59 };
 
-        return { hours: 23, minutes: 59, seconds: 59 }; // reset daily
+        return { hours: 23, minutes: 59, seconds: 59 };
       });
     }, 1000);
 
@@ -71,23 +72,24 @@ export default function Cta() {
             Begin your journey to confident, high-scoring maths.
           </p>
 
-          {/* Buttons */}
-          <div className="flex flex-col sm:flex-row justify-center gap-5 mb-10 reveal-up">
-            <SlideButton
-              as="a"
+          {/* BUTTONS */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-10 reveal-up">
+
+            {/* WhatsApp Button */}
+            <MagneticButton
               href="https://wa.me/8281832158"
-              className="px-8 py-4 text-base"
-              baseBg="#f8ba2b"
-              textColor="#000"
+              bg="#f8ba2b"
+              icon={<FaWhatsapp size={20} color="#25D366" />}
             >
               Join Free on WhatsApp
-            </SlideButton>
+            </MagneticButton>
 
+            {/* Explore Button */}
             <a
               href="#missions"
               className="px-7 py-4 rounded-full border border-gray-300
               text-[var(--text-dark)] font-semibold bg-white hover:bg-yellow-400 
-              transition-all shadow-sm"
+              transition-all shadow-sm flex items-center justify-center"
             >
               Explore Missions
             </a>

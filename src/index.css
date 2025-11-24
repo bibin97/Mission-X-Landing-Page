@@ -124,16 +124,18 @@ section {
    PARTICLE CURSOR
 =========================================================== */
 .cursor-dot {
-  width: 12px;
-  height: 12px;
-  background: var(--brand-teal);
-  border-radius: 50%;
+  width: 6px;     /* half size (was 12px) */
+  height: 6px;    /* half size (was 12px) */
+  background: #008080 !important;  /* teal color */
+  border-radius: 80%;
   position: fixed;
   pointer-events: none;
-  z-index: 50;
-  opacity: 0.9;
-  transition: transform 0.1s ease-out;
+  z-index: 9999;
+  opacity: 1;
+  transform: translate(-50%, -50%);
+  transition: transform 0.05s linear;  /* MUCH faster */
 }
+
 
 #particle-cursor {
   z-index: 999999 !important;
@@ -235,4 +237,8 @@ h1, h2 {
 
 .nav-cta-btn {
   color: #111827 !important; /* gray-900 */
+}
+.badge-fix,
+.badge-text {
+  color: #000 !important;
 }
