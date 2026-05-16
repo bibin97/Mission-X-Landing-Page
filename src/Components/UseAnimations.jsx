@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import SplitType from "split-type";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,101 +9,114 @@ export default function UseAnimations() {
     const ctx = gsap.context(() => {
 
       /* =====================================================
-         1. HIGH WAVE TEXT ANIMATION (ALL TEXT)
+         1. CLEAN PREMIUM FADE-IN FOR HEADINGS & TEXT
+         (Replaces legacy typing & hover wave animations)
       ===================================================== */
-      const elements = document.querySelectorAll(".reveal-typing");
-
-      elements.forEach((el) => {
-        const text = new SplitType(el, { types: "chars" });
-
-        gsap.from(text.chars, {
+      gsap.utils.toArray(".reveal-typing, .hover-wave, .reveal-up").forEach((el) => {
+        gsap.from(el, {
           opacity: 0,
           y: 25,
-          rotation: 12,
-          stagger: 0.045,
-          duration: 0.7,
-          ease: "back.out(2.8)",
+          duration: 0.8,
+          ease: "power3.out",
           scrollTrigger: {
             trigger: el,
             start: "top 85%",
-            toggleActions: "play none none none",
+            once: true
           },
         });
       });
 
       /* =====================================================
-         2. BUTTON ENTRY ANIMATION
+         2. BUTTON REVEAL (SMOOTH PREMIUM FADE)
       ===================================================== */
       gsap.utils.toArray(".reveal-btn").forEach((btn) => {
         gsap.from(btn, {
           opacity: 0,
-          scale: 0.8,
-          y: 20,
-          duration: 0.6,
+          scale: 0.95,
+          y: 15,
+          duration: 0.7,
           ease: "power3.out",
           scrollTrigger: {
             trigger: btn,
             start: "top 90%",
-          },
+            once: true
+          }
         });
       });
 
       /* =====================================================
-         3. CARD FADE + POP ANIMATION
+         3. CARD PREMIUM ENTRANCE (SMOOTH, NO BOUNCE)
       ===================================================== */
       gsap.utils.toArray(".reveal-card").forEach((card) => {
         gsap.from(card, {
           opacity: 0,
-          y: 40,
-          scale: 0.92,
-          duration: 0.7,
-          ease: "back.out(1.8)",
+          y: 35,
+          scale: 0.96,
+          duration: 0.8,
+          ease: "power3.out",
           scrollTrigger: {
             trigger: card,
-            start: "top 92%",
-          },
+            start: "top 90%",
+            once: true
+          }
         });
       });
 
       /* =====================================================
-         4. IMAGE FLOAT-IN ANIMATION
+         4. IMAGE PREMIUM FLOAT-IN
       ===================================================== */
       gsap.utils.toArray(".reveal-img").forEach((img) => {
         gsap.from(img, {
           opacity: 0,
-          y: 40,
-          scale: 0.95,
+          y: 30,
+          scale: 0.98,
           duration: 0.8,
-          ease: "power2.out",
+          ease: "power3.out",
           scrollTrigger: {
             trigger: img,
-            start: "top 90%",
-          },
+            start: "top 85%",
+            once: true
+          }
         });
       });
 
       /* =====================================================
-         5. SECTION FADE-UP
+         5. SLIDE-IN BUTTONS (SMOOTH PREMIUM)
       ===================================================== */
-      gsap.utils.toArray(".reveal-up").forEach((el) => {
-        gsap.from(el, {
+      gsap.utils.toArray(".slide-from-left").forEach((btn) => {
+        gsap.from(btn, {
           opacity: 0,
-          y: 30,
-          duration: 0.6,
-          ease: "power2.out",
+          x: -40,
+          duration: 0.8,
+          ease: "power3.out",
           scrollTrigger: {
-            trigger: el,
+            trigger: btn,
             start: "top 95%",
-          },
+            once: true
+          }
+        });
+      });
+
+      gsap.utils.toArray(".slide-from-right").forEach((btn) => {
+        gsap.from(btn, {
+          opacity: 0,
+          x: 40,
+          duration: 0.8,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: btn,
+            start: "top 95%",
+            once: true
+          }
         });
       });
 
       /* =====================================================
-         6. GSAP Optimization
+         GSAP GLOBAL SETTINGS
       ===================================================== */
       ScrollTrigger.defaults({
-        once: true,
         markers: false,
+        once: true
       });
 
     });

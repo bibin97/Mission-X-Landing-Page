@@ -52,7 +52,7 @@ export default function Testimonials() {
 
           {/* Heading */}
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[var(--text-dark)] mb-3 reveal-typing">
-            What Students & Mentors Say
+            What Students & <span className="text-[#008080]">Mentors Say</span>
           </h2>
 
           {/* Paragraph */}

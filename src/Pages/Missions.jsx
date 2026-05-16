@@ -11,7 +11,7 @@ export default function Missions() {
         {/* Section Header */}
         <div className="text-center mb-14">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[var(--text-dark)] reveal-typing">
-            Level up your learning journey
+            Level up your <span className="text-[#008080]">learning journey</span>
           </h2>
 
           <p className="text-gray-700 max-w-3xl mx-auto mt-3 text-base sm:text-lg reveal-typing">
